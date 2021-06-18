@@ -45,7 +45,7 @@ def get_context(lines, start, end, context, full_len):
 spk_info = {}
 setname = 'test-other'
 
-with open('CHAPTERS/test_other_chapters') as fin:
+with open('../chapter_location/test_other_chapters') as fin:
     for line in fin:
         elems = line.split('|')
         proj_ID = elems[0].lstrip().strip()
