@@ -12,5 +12,5 @@
 * `select_words.py`: Arrange biasing lists from all scraped words
 
 ### How To
-* Run `python get_book_chapters.py` with correct set name in the script to get a json file containing word lists for each speaker-project pair.
-* Run `select_words.py` 
+* First run: ```python get_book_chapters.py```. Need to set correct set name and range of text in the script. This outputs a json file containing biasing lists for each speaker-project pair.
+* Then run: ```python select_words.py```. This takes the biasing lists and check it against `all_rare_words.txt`. Need to specify the set name, context length, the minimum and maximum length of each biasing list.
