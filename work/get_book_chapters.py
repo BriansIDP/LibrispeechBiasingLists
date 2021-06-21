@@ -4,6 +4,8 @@ import en_core_web_md
 
 nlp = en_core_web_md.load()
 context = 1000
+setname = 'test-clean'
+setname2 = '_'.join(setname.split('-'))
 
 latin_books = ['/scratch/gs534/librispeech/LibriSpeech/books/ascii/3178/3178.txt',
                '/scratch/gs534/librispeech/LibriSpeech/books/ascii/4770/wasoe10.txt',
@@ -43,9 +45,8 @@ def get_context(lines, start, end, context, full_len):
     return lines[start: end]
 
 spk_info = {}
-setname = 'test-other'
 
-with open('../chapter_location/test_other_chapters') as fin:
+with open('../chapter_location/{}_chapters'.format(setname2)) as fin:
     for line in fin:
         elems = line.split('|')
         proj_ID = elems[0].lstrip().strip()
@@ -101,6 +102,6 @@ for proj_ID, infos in spk_info.items():
                 bookinfo[proj_ID] = {}
             bookinfo[proj_ID][info[1]] = {'bookwords':list(bookwords), 'oovwords':list(oovwords)}
             # print(bookpath)
-with open('bookinfo_chapter_test_other_{}.json'.format(context), 'w') as fout:
+with open('bookinfo_chapter_{}_{}.json'.format(setname2, context), 'w') as fout:
     json.dump(bookinfo, fout, indent=4)
 
