@@ -10,3 +10,7 @@
 * `speaker_book.txt`: Speaker-book mappings
 * `word_freq.txt`: Frequency of words appeared in the 960-hour training data
 * `select_words.py`: Arrange biasing lists from all scraped words
+
+### How To
+* Run `python get_book_chapters.py` with correct set name in the script to get a json file containing word lists for each speaker-project pair.
+* Run `select_words.py` 
